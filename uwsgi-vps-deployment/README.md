@@ -63,3 +63,13 @@ def hello_world(address):
 ```sh
 su - www-data -c "uwsgi --socket 127.0.0.1:9090 --wsgi-file /usr/share/nginx/www/flaskhello.py --callable app&"
 ```
+
+
+Таски
+-----
+
+1. Научиться напрямую сёрвить директории файлов через nginx (managing static files). Просто отдавать файлы из конкретной папки.
+
+2. Дочитать подвал [статьи про Django - uWSGI - nginx](http://uwsgi-docs.readthedocs.org/en/latest/tutorials/Django_and_nginx.html), попробоваь сделать фишки из него.
+
+3. Научиться деплоиться, выкачивая код из репозитория. См. [Capistrano](http://habrahabr.ru/post/49127/). Положить код Summarization в svn/git.
