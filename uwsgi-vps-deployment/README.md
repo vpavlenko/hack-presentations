@@ -2,6 +2,7 @@
 ==============================================
 
 [Flask](http://flask.pocoo.org/) - легкий веб-фреймворк на Питоне.
+
 [Отличный туториал по связке nginx - uWSGI - Django](http://uwsgi-docs.readthedocs.org/en/latest/tutorials/Django_and_nginx.html)
 
 
@@ -38,7 +39,7 @@
 
 Будем дружить uWSGI и nginx через TCP-порты.
 
-Допишем в (конфиг nginx)[default]:
+Допишем в [конфиг nginx](default):
 ```
 location ~* /flask { try_files $uri @flask; }
 location @flask {
@@ -48,7 +49,7 @@ location @flask {
 }
 ```
 
-Вот наше простейшее (flask-приложение)[flaskhello.py]:
+Вот наше простейшее [flask-приложение](flaskhello.py):
 ```
 from flask import Flask
 app = Flask(__name__)
