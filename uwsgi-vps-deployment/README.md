@@ -11,20 +11,20 @@
 ---------
 
 - Ставим Flask:
-```
+```sh
 # apt-get install python-setuptools
 # easy_install-2.7 pip
 # pip install flask
 ```
 
 - Ставим uWSGI:
-```
+```sh
 # apt-get install python-dev gcc   # uwsgi содержит Python/C interaction
 # pip install uwsgi
 ```
 
 - Ставим nginx:
-```
+```sh
 # apt-get install nginx
 ```
 
@@ -40,7 +40,7 @@
 Будем дружить uWSGI и nginx через TCP-порты.
 
 Допишем в [конфиг nginx](default):
-```
+```conf
 location ~* /flask { try_files $uri @flask; }
 location @flask {
   rewrite ^/flask(.*) $1 break;
@@ -50,7 +50,7 @@ location @flask {
 ```
 
 Вот наше простейшее [flask-приложение](flaskhello.py):
-```
+```python
 from flask import Flask
 app = Flask(__name__)
 
@@ -60,6 +60,6 @@ def hello_world(address):
 ```
 
 Запустим uWSGI командой
-```
+```sh
 su - www-data -c "uwsgi --socket 127.0.0.1:9090 --wsgi-file /usr/share/nginx/www/flaskhello.py --callable app&"
 ```
